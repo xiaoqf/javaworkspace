@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping>
+<hibernate-mapping package="learn.dto">
     <!-- User -->
-    <class name="learn.dto.User" table="Users">
+    <class name="User" table="Users">
         <id name="userId" column="userId" type="java.lang.Integer">
             <generator class="native" />
         </id>
