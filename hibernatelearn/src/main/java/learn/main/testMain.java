@@ -1,7 +1,8 @@
 package learn.main;
 
-
+import learn.dao.BookOperate;
 import learn.dao.UserOperate;
+import learn.dto.Book;
 import learn.dto.User;
 
 import org.hibernate.SessionFactory;
@@ -25,8 +26,21 @@ public class testMain {
         user.setUserName("xiaoabc");
         operate.updUser(user);
         System.out.println(operate.getUser("xiaoabc"));
-        operate.delUser("xiaoabc");
-        System.out.println(operate.getUser("xiaoabc"));
+//        operate.delUser("xiaoabc");
+//        System.out.println(operate.getUser("xiaoabc"));
+
+        BookOperate bookOperate = new BookOperate(factory);
+        Book book = new Book();
+        book.setBookName("xiaoBook123");
+        book.setAuther("xiaoqf");
+        bookOperate.insBook(book);
+        book = bookOperate.getBook("xiaoBook123");
+        System.out.println(book);
+        book.setBookName("xiaoabc");
+        bookOperate.updBook(book);
+        System.out.println(bookOperate.getBook("xiaoabc"));
+//        bookOperate.delBook("xiaoabc");
+//        System.out.println(bookOperate.getBook("xiaoabc"));
         factory.close();
     }
 

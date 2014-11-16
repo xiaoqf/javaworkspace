@@ -11,5 +11,6 @@
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 		<property name="show_sql">true</property>
 		<mapping resource="learn/dto/User.hbm.xml" />
+		<mapping class="learn.dto.Book" />
 	</session-factory>
 </hibernate-configuration>
