@@ -2,12 +2,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script language="javascript">
-	var flag = 0;
+	var flag1 = false;
+	var flag2 = false;
+	var flag3 = false;
 	function sub() {
 		if (document.getElementById("userName").value != ""
 				&& document.getElementById("password").value != ""
 				&& document.getElementById("passwordAgain").value != "") {
-			if (flag >= 3) {
+			if (flag1 == true && flag2 == true && flag3 == true) {
 				document.regist.submit();
 			} else {
 				alert("您填写的注册信息有误，请重新填写。");
@@ -32,11 +34,11 @@
 		if (obValue.length > 8 || obValue.length < 3) {
 			document.getElementById("usName").innerHTML = 
 				"<font name=usName style='font-size:12px;color=red'>长度要求3~8位！</font>";
-			flag--;
+			flag1=false;
 		} else {
 			document.getElementById("usName").innerHTML = 
 				"<font name=usName style='font-size:12px;color=green'>可以使用。</font>";
-			flag++;
+			flag1=true;
 		}
 	}
 	
@@ -45,11 +47,11 @@
 		if (obValue.length > 8 || obValue.length < 6) {
 			document.getElementById("ps1").innerHTML = 
 				"<font name=ps1 style='font-size:12px;color=red'>长度要求6~8位！</font>";
-			flag--;
+			flag2=false;
 		} else {
 			document.getElementById("ps1").innerHTML = 
 				"<font name=ps1 style='font-size:12px;color=green'>可以使用。</font>";
-			flag++;
+			flag2=true;
 		}
 	}
 	
@@ -58,22 +60,20 @@
 		var obValue = obj.value;
 		var prrValue = document.getElementById("password").value;
 		if (prrValue != obValue) {
-			alert("aaa")
 			document.getElementById("ps2").innerHTML = 
 				"<font name=ps2 style='font-size:12px;color=red'>两次输入密码不一致！</font>";
-			flag--;
+			flag3=false;
 		} else {
-			alert("bbb")
 			document.getElementById("ps2").innerHTML = 
 				"<font name=ps2 style='font-size:12px;color=green'>密码通过。</font>";
-			flag++;
+			flag3=true;
 		}
 	}
 </script>
 <title>网上书店系统</title>
 </head>
 <body>
-<form method="post" name="regist" action="RegistServlet">
+<form method="post" name="regist" action="RegisterServlet">
 <table style="height:100%; width:100%">
 	<tr align="center" valign="middle">
 		<td>
@@ -87,14 +87,14 @@
 					<TR>
 						<td width="80" height="20">&nbsp;&nbsp;&nbsp;用户名:</td>
 						<td width="120" height="20">
-							<input type="text" id="userName" value="" style="WIDTH: 110px" onchange="chang1(this)"/>
+							<input type="text" id="userName" name="userName" value="" style="WIDTH: 110px" onchange="chang1(this)"/>
 						</td>
 						<td id="usName"/>
 					</TR>
 					<TR>
 						<td height="20">&nbsp;&nbsp;&nbsp;密&nbsp;码:</td>
 						<td height="20">
-							<input type="password" id="password" value="" style="WIDTH: 110px" onchange="chang2(this)"/>
+							<input type="password" id="password" name="password" value="" style="WIDTH: 110px" onchange="chang2(this)"/>
 						</td>
 						<td id="ps1"/>
 					</TR>
@@ -107,8 +107,8 @@
 					</TR>
 					<tr>
 						<td height="20" colspan="2" align="center">
-						<button onclick="res()">重置</button>&nbsp;
-						<button onclick="sub()">提交</button>&nbsp;
+							<input type="button" name="button1" onclick="res()" value="重置">&nbsp;
+							<input type="button" name="button2" onclick="sub()" value="提交">&nbsp;
 						</td>
 						<td align="left" width=81><a href="login.jsp">返回</a></td>
 					</tr>
