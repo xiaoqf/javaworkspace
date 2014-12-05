@@ -25,10 +25,10 @@
 <body>
     <form action="hello" method="post" name="Login">
         <p align="left">userName:&nbsp; <input type="text" name="loginName" size="20"/></p>
-        <p align="left">password:&nbsp; <input type="text" name="password" size="20"/></p>
+        <p align="left">password:&nbsp; <input type="password" name="password" size="20"/></p>
         <p align="left">
-            <input type="button" value="login" name="B1" onclick="LoginSubmit()">
-            <input type="reset" value="reset" name="B2"/>
+            <input type="button" value="login" onclick="LoginSubmit()">
+            <input type="reset" value="reset"/>
         </p>
     </form>
 </body>
